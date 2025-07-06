@@ -3,6 +3,7 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from dbgpt.model.proxy.llms.burncloud import BurncloudLLMClient
     from dbgpt.model.proxy.llms.chatgpt import OpenAILLMClient
     from dbgpt.model.proxy.llms.claude import ClaudeLLMClient
     from dbgpt.model.proxy.llms.deepseek import DeepseekLLMClient
@@ -21,6 +22,7 @@ if TYPE_CHECKING:
 
 def __lazy_import(name):
     module_path = {
+        "BurncloudLLMClient": "dbgpt.model.proxy.llms.burncloud",
         "OpenAILLMClient": "dbgpt.model.proxy.llms.chatgpt",
         "ClaudeLLMClient": "dbgpt.model.proxy.llms.claude",
         "GeminiLLMClient": "dbgpt.model.proxy.llms.gemini",
@@ -49,6 +51,7 @@ def __getattr__(name):
 
 
 __all__ = [
+    "BurncloudLLMClient",
     "OpenAILLMClient",
     "ClaudeLLMClient",
     "GeminiLLMClient",
